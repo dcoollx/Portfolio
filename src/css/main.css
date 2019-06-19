@@ -1,0 +1,10 @@
+header{
+  border: 2px solid black;
+  background-color:red;
+  width:100%;
+  height: 75%;
+ }
+ #target{
+   width:100%;
+   height:100%;
+ }

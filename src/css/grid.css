@@ -1,0 +1,24 @@
+html, body{
+  margin:0;
+  height: 100%;
+  width: 100%;
+  
+}
+*{
+  margin:none;
+  padding:none;
+  box-sizing: content-box;
+}
+.container{
+  display: inline-grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  margin:auto;
+}
+
+.col-half{
+  grid-column: span 3;
+
+}
+.col-full{
+   grid-column: span 6;
+}
