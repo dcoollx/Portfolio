@@ -1,6 +1,6 @@
 html, body{
   margin:0;
-  height: 100%;
+  height:100%;
   width: 100%;
   
 }
@@ -9,16 +9,35 @@ html, body{
   padding:none;
   box-sizing: content-box;
 }
-.container{
-  display: inline-grid;
-  grid-template-columns: auto auto auto auto auto auto;
-  margin:auto;
-}
 
-.col-half{
-  grid-column: span 3;
+  .container{
+    width:100%;
+    margin-left:10%;
+    row-gap: 4%;
+    column-gap: 4%;
+    display: inline-grid;
+    justify-content:center;
+    align-content: space-evenly;
+    grid-template-columns: 20% 20% 20% 20%;
+    margin:auto;
+  }
 
-}
-.col-full{
-   grid-column: span 6;
-}
+  
+
+  .col-half{
+    grid-column: span 2;
+
+  }
+  .col-full{
+    grid-column: span 4;
+  }
+  .col-center{
+    grid-column: 1/span 3;
+  }
+  @media only screen and  (min-width:500px){
+    .col-center{
+      grid-column: 2/span 2;
+    }
+  }
+
+
