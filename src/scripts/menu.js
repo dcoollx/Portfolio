@@ -31,16 +31,21 @@ export default class Menu{
  
     this.scene = new THREE.Scene();
     //this.scene.background = new THREE.Color('#1a323e');
- 
-    this.geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
     var ambLight = new THREE.PointLight();
-    this.scene.add(ambLight);
-    this.material = new THREE.MeshStandardMaterial({color:0xffffff});
+    var ambLigh2 = new THREE.PointLight(0xffffff,0.3);
+    this.scene.add(ambLight,ambLigh2);
+    ambLigh2.position.x = 20;
+    this.geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
+    this.material = new THREE.MeshBasicMaterial({color:0xffffff});
     this.main = new THREE.Mesh( this.geometry, this.material );
+    this.main.material.transparent = true;
+    this.main.material.opacity = 0.0;
     this.main.material.color.set(0xFF0000);
     this.objects.push(this.main);
     for(let x =1;x<=50;x++){
-      this.objects.push(new THREE.Mesh( this.geometry, this.material ));
+      var geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
+      var material = new THREE.MeshStandardMaterial({color:0xffffff});
+      this.objects.push(new THREE.Mesh( geometry, material ));
       this.objects[x].position.x = (Math.random()*10)-5;
       this.objects[x].position.z = (Math.random()*10)-5;
       this.objects[x].position.y = (Math.random()*10)-5;
@@ -50,7 +55,7 @@ export default class Menu{
  
     
     this.objects.forEach((o)=>{  this.scene.add(o);});
-    //this.main.add(this.camera);// attaches camera to main object.
+    this.main.add(this.camera);// attaches camera to main object.
  
     this.renderer = new THREE.WebGLRenderer( { antialias: true } );
     this.renderer.setSize(parent.width,parent.height );
