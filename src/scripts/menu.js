@@ -5,6 +5,7 @@ export default class Menu{
   constructor(){
     this.camera;
     this.scene;
+    this.raycaster;
     let theta = 0;
     this.renderer;
     this.geometry;
@@ -51,6 +52,7 @@ export default class Menu{
       this.objects[x].position.z = (Math.random()*10)-5;
       this.objects[x].position.y = (Math.random()*10)-5;
     }
+    //this.raycaster = new THREE.raycaster();
  
     
     this.objects.forEach((o)=>{  this.scene.add(o);});
