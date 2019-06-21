@@ -30,7 +30,7 @@ module.exports = {
   entry: './src/scripts/index.js',
 
   output: {
-    filename: '[name].[chunkhash].js',
+    filename: 'index_bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
 

@@ -5,6 +5,7 @@ html, body{
   
 }
 *{
+  font-size: 26px;
   margin:none;
   padding:none;
   box-sizing: content-box;
@@ -22,21 +23,30 @@ html, body{
     margin:auto;
   }
 
-  
-
-  .col-half{
-    grid-column: span 2;
-
-  }
+  .col-right,
+  .col-center,
+  .col-half,
+  .col-quarter,
   .col-full{
     grid-column: span 4;
   }
-  .col-center{
-    grid-column: 1/span 3;
-  }
+  
+  
   @media only screen and  (min-width:500px){
+    body, html{
+      font-size: 16px;
+    }
     .col-center{
       grid-column: 2/span 2;
+    }
+    .col-half{
+      grid-column: span 2;
+    }
+    .col-quarter{
+      grid-column: span 1;
+    }
+    .col-right{
+      grid-column: 4;
     }
   }
 
