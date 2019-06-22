@@ -1,16 +1,20 @@
 //this uses three js to create a 3d menu
 import * as THREE from 'three' ;
+import $ from 'jquery';
 import {TweenMax} from 'gsap/TweenMax';
 
 export default class Menu{
   constructor(){
+    this.mobile = document.body.clientHeight > document.body.clientWidth;// true if on mobile 
     this.camera;
+    this.mainLight;
     this.scene;
     this.raycaster;
     this.renderer;
     this.geometry;
     this.material;
     this.objects =[];
+    this.buttons = [];
     this.main;
     this.rotationSpeed = 0.002;
     this.init();
@@ -31,10 +35,13 @@ export default class Menu{
  
     this.scene = new THREE.Scene();
     //this.scene.background = new THREE.Color('#1a323e');
-    var ambLight = new THREE.PointLight();
+    this.mainLight = new THREE.PointLight();
     var ambLigh2 = new THREE.PointLight(0xffffff,0.3);
-    this.scene.add(ambLight,ambLigh2);
+    this.scene.add(this.mainLight);//ambLigh2
     ambLigh2.position.x = 20;
+    //
+    this.main = new THREE.Mesh( this.geometry, this.material );
+    // box that follows camera
     this.geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
     this.material = new THREE.MeshBasicMaterial({color:0xffffff});
     this.main = new THREE.Mesh( this.geometry, this.material );
@@ -63,6 +70,25 @@ export default class Menu{
     document.getElementById('target').appendChild( this.renderer.domElement );//needs to be changed to parent canvas
  
   }
+  /**
+  * 
+  * @param  {...string} names
+  * @returns {Array} buttons -objects with those names added 
+  */
+  createButtons(...names){
+
+    this. buttons = names.map((name)=>{
+      let geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
+      let material = new THREE.MeshBasicMaterial({color:0xffffff});
+      let btn = new THREE.Mesh( geometry, material );
+      btn.buttonName = name;//name appended to object to signify that is is a button
+      this.scene.add(btn);
+      return btn;
+    });
+    this.objects.push(...this.buttons);//add all new buttons to objects
+
+    return this.buttons;
+  }
  
   animate() {
  
@@ -73,27 +99,50 @@ export default class Menu{
  
   }
   handleWindowResize(){
-    document.body.addEventListener('resize',(e)=>{
+    window.addEventListener('resize',(e)=>{
+      console.log('resizeing');
+      this.mobile = document.body.clientHeight > document.body.clientWidth;// true if on mobile
       let parent ={width: document.getElementById('target').getBoundingClientRect().width, height:document.getElementById('target').getBoundingClientRect().height};
       this.renderer.setSize(parent.width,parent.height );
-      this.camera.setSize(parent.width/parent.height);
+      this.camera.aspect = parent.width/parent.height;
       this.camera.updateProjectionMatrix();
     },false);
   }
   handleMouseMove(){
-    window.addEventListener('click',(e)=>{
+    this.renderer.domElement.addEventListener('click',(e)=>{
       e.preventDefault();
       var mouse = new THREE.Vector2();
       mouse.x = (e.clientX/window.innerWidth)*2-1;
       mouse.y = -(e.clientY/window.innerHeight)*2+1;
-      console.log(mouse);
+      //console.log(mouse);
       this.raycaster.setFromCamera(mouse,this.camera);
       var intersects = this.raycaster.intersectObjects(this.scene.children);
-      //console.log(intersects);
-      intersects.forEach((o)=>{
-        o.object.material.color.set(0xffFFFF);
-       console.log(o);
+      intersects.forEach((obj)=>{
+        if(obj.object.buttonName){
+          console.log(('#' + obj.object.buttonName));//.scrollTop();
+        }
       });
+    });
+
+
+
+
+    window.addEventListener('mousemove',(e)=>{
+      e.preventDefault();
+      var mouse = new THREE.Vector2();
+      mouse.x = (e.clientX/window.innerWidth)*2-1;
+      mouse.y = -(e.clientY/window.innerHeight)*2+1;
+      this.raycaster.setFromCamera(mouse,this.camera);
+      var intersects = this.raycaster.intersectObjects(this.scene.children);
+      this.objects.forEach((object)=>{
+        if(!intersects.includes(object)){
+          object.material.color.set(0xffffff);
+        }
+      });
+      intersects.forEach((o)=>{
+        o.object.material.color.set(0x00ffff);
+      });
+      this.camera.fov = 90;
       //this.rotationSpeed += 0.00001;//need tweenMax for this
     });
   }
