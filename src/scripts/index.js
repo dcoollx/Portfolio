@@ -9,7 +9,7 @@ let buttons = [];
 
 
 let menu = new Menu();
-buttons = menu.createButtons('about_me','my_skillz','my_life','my_projects','contact_me');
+buttons = menu.createButtons('about_me','my_skills','my_life','my_projects','contact_me');
 menu.animate();
 window.menu = menu;//testing purposes
 let hello = document.getElementById('welcome');

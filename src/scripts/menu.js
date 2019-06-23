@@ -135,7 +135,9 @@ export default class Menu{
       var intersects = this.raycaster.intersectObjects(this.scene.children);
       intersects.forEach((obj)=>{
         if(obj.object.buttonName){
-          window.location = location.href + '#' + obj.object.buttonName;
+          window.location.assign('#' + obj.object.buttonName);
+        }else{
+          obj.object.material.color.set(0xFF0000);
         }
       });
     });
