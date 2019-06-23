@@ -13,8 +13,17 @@
   --secondary:#1b729f; 
 }
 html body{
-  width:101%;
+  width:100%;
   margin:0px;
+  color: var(--offBlack);
+  font-family: 'Montserrat',sans-serif;
+  font-size: 26px;
+}
+canvas{
+  font-family: 'VT323' sans-serif;
+}
+li{
+  list-style: none;
 }
 
 q{
@@ -24,15 +33,11 @@ q{
 p{
   line-height: 1.3;
 }
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto|VT323&display=swap');
 h1,h2,h3{
   
   font-family: 'Roboto', sans-serif;
   color:var(--accent);
-}
-*{
-  color: var(--offBlack);
-  font-family: 'Montserrat',sans-serif;
 }
 a{
   text-decoration: none;
@@ -51,6 +56,9 @@ button{
   width:100%;
   height: 5%;
   background-color: black;
+}
+.extraInfo{
+font-size: 16px;
 }
 #main-nav{
   display:none;
@@ -88,7 +96,8 @@ header{
  }
  .welcome{
    position: absolute;
-   font-size: 50px;
+   font-size: 75px;
+   font-family: VT323;
    z-index: 1;
    top:50%;
    left:50%;
@@ -98,9 +107,17 @@ header{
    width:100%;
  }
  footer{
+   background-color: black;
+   color:white;
+ }
+ footer>*{
   display: block;
-  background-color: black;
+  color:white;
   align-content: center;
+  justify-content: center;
+ }
+ #contact_me>a{
+   color:var(--offBlack);
  }
  @media only screen and (min-width:760px){
   #seam{
@@ -130,6 +147,10 @@ header{
   }
   #hamb{
     display: none;
+  }
+  .extraInfo{
+    font-size: 14px;
+    color: var(--nuetral);
   }
 
  }

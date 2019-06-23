@@ -36,9 +36,11 @@ export default class Menu{
     this.scene = new THREE.Scene();
     //this.scene.background = new THREE.Color('#1a323e');
     this.mainLight = new THREE.PointLight();
+    let crossLight = new THREE.PointLight();
     var ambLigh2 = new THREE.PointLight(0xffffff,1);
-    this.scene.add(this.mainLight);//ambLigh2
-    ambLigh2.position.z = 20;
+    this.scene.add(this.mainLight,ambLigh2,crossLight);//ambLigh2
+    this.mainLight.position.z = 20;
+    this.mainLight.position.x = 10;
     //
     this.main = new THREE.Mesh( this.geometry, this.material );
     // box that follows camera
@@ -78,9 +80,22 @@ export default class Menu{
   createButtons(...names){
 
     this.buttons = names.map((name)=>{
+      //label
+      const canvas = this.makeLabels(name);
+      const texture = new THREE.CanvasTexture(canvas);
+      texture.minFilter = THREE.LinearFilter;
+      texture.wrapS = THREE.ClampToEdgeWrapping;
+      texture.wrapT = THREE.ClampToEdgeWrapping;
+      const labelMat = new THREE.SpriteMaterial({map:texture, transparent:true});
+      const label = new THREE.Sprite(labelMat);
+
+      //button geometry
       let geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
-      let material = new THREE.MeshBasicMaterial({color:0xffffff});
+      let material = new THREE.MeshPhongMaterial({color:0xffffff});
       let btn = new THREE.Mesh( geometry, material );
+      btn.add(label);
+      label.position.z = .3;
+      label.scale.set(0.2,0.05,0.2);
       btn.buttonName = name;//name appended to object to signify that is is a button
       this.scene.add(btn);
       return btn;
@@ -94,6 +109,7 @@ export default class Menu{
       this.buttons.forEach((b,index)=>{
         // widen them and stack veritcally
         b.position.set(0,((index-((this.buttons.length-(index*2))*2))*.1/2),0); //3/5*x - 3 = 0
+        b.children[0].position.set(0,0.05,0.3);
         console.log(b.position);
       });
     }else{
@@ -103,6 +119,27 @@ export default class Menu{
       });
     }
 
+  }
+  makeLabels(name){
+    const ctx = document.createElement('canvas').getContext('2d');
+    const borderSize =2;
+    const font = '26px bold sans serif';
+    ctx.font = font;
+    const width = ctx.measureText(name).width + (borderSize*2);
+    const height = 26 +  (borderSize*2);
+    ctx.canvas.width = width;
+    ctx.canvas.height = height;
+    //set up canvas
+    ctx.font = font;
+    ctx.textBaseline = 'top';
+    //need to re-set up canvas after resizing
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0, 0, width, height);
+    ctx.fillStyle = 'white';
+    ctx.fillText(name, borderSize, borderSize);
+ 
+    return ctx.canvas;
+    
   } 
   animate() {
  
