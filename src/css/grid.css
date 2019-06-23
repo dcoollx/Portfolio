@@ -10,8 +10,8 @@ html, body{
 .container{
   width:100%;
   margin-left:10%;
-  row-gap: 10%;
-  column-gap: 4%;
+  row-gap: 4%;
+  grid-column-gap: 4%;
   display: grid;
   justify-content:center;
   align-content: space-evenly;
@@ -30,6 +30,9 @@ html, body{
   
   
 @media only screen and  (min-width:720px){
+  .container{
+    row-gap: 10%;
+  }
   body, html{
     font-size: 16px;
     }

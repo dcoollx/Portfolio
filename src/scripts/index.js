@@ -21,5 +21,6 @@ TweenMax.from(menu.main.position,5,{x:5,delay:7});
 buttons.forEach(b=>{
   TweenMax.from(b.position,5,{x:Math.random()*10,y:Math.random()*10,delay:7});
 });
+TweenMax.to(hello,3,{opacity:0,delay:7});
 
 //move location center after animation

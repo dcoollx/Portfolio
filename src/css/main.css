@@ -109,6 +109,7 @@ header{
  footer{
    background-color: black;
    color:white;
+   font-size: 16px;
  }
  footer>*{
   display: block;
@@ -120,6 +121,9 @@ header{
    color:var(--offBlack);
  }
  @media only screen and (min-width:760px){
+   footer{
+     font-size:26px;
+   }
   #seam{
     display:block;
     z-index: 100;
