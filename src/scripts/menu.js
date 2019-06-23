@@ -36,9 +36,9 @@ export default class Menu{
     this.scene = new THREE.Scene();
     //this.scene.background = new THREE.Color('#1a323e');
     this.mainLight = new THREE.PointLight();
-    var ambLigh2 = new THREE.PointLight(0xffffff,0.3);
+    var ambLigh2 = new THREE.PointLight(0xffffff,1);
     this.scene.add(this.mainLight);//ambLigh2
-    ambLigh2.position.x = 20;
+    ambLigh2.position.z = 20;
     //
     this.main = new THREE.Mesh( this.geometry, this.material );
     // box that follows camera
@@ -77,7 +77,7 @@ export default class Menu{
   */
   createButtons(...names){
 
-    this. buttons = names.map((name)=>{
+    this.buttons = names.map((name)=>{
       let geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
       let material = new THREE.MeshBasicMaterial({color:0xffffff});
       let btn = new THREE.Mesh( geometry, material );
@@ -86,10 +86,24 @@ export default class Menu{
       return btn;
     });
     this.objects.push(...this.buttons);//add all new buttons to objects
-
+    this.arrangeButtons();
     return this.buttons;
   }
- 
+  arrangeButtons(){
+    if(this.mobile){
+      this.buttons.forEach((b,index)=>{
+        // widen them and stack veritcally
+        b.position.set(0,((index-((this.buttons.length-(index*2))*2))*.1/2),0); //3/5*x - 3 = 0
+        console.log(b.position);
+      });
+    }else{
+      this.buttons.forEach((b, index)=>{
+        b.position.set(((index-((this.buttons.length-(index*2))*2))*.1/2),0,0);
+        // stack in a grid
+      });
+    }
+
+  } 
   animate() {
  
     window.requestAnimationFrame( this.animate() );
@@ -119,7 +133,7 @@ export default class Menu{
       var intersects = this.raycaster.intersectObjects(this.scene.children);
       intersects.forEach((obj)=>{
         if(obj.object.buttonName){
-          console.log(('#' + obj.object.buttonName));//.scrollTop();
+          window.location = location.href + '#' + obj.object.buttonName;
         }
       });
     });
