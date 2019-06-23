@@ -94,7 +94,7 @@ export default class Menu{
       let material = new THREE.MeshPhongMaterial({color:0xffffff});
       let btn = new THREE.Mesh( geometry, material );
       btn.add(label);
-      label.position.z = .3;
+      label.position.z = .1;
       label.scale.set(0.2,0.05,0.2);
       btn.buttonName = name;//name appended to object to signify that is is a button
       this.scene.add(btn);
@@ -109,7 +109,7 @@ export default class Menu{
       this.buttons.forEach((b,index)=>{
         // widen them and stack veritcally
         b.position.set(0,((index-((this.buttons.length-(index*2))*2))*.1/2),0); //3/5*x - 3 = 0
-        b.children[0].position.set(0,0.05,0.3);
+        //b.children[0].position.set(0,0.05,0.3);
         console.log(b.position);
       });
     }else{
@@ -122,20 +122,25 @@ export default class Menu{
   }
   makeLabels(name){
     const ctx = document.createElement('canvas').getContext('2d');
+    let baseWidth = 140;
     const borderSize =2;
     const font = '26px bold sans serif';
     ctx.font = font;
-    const width = ctx.measureText(name).width + (borderSize*2);
+    const width = baseWidth + (borderSize*2);
     const height = 26 +  (borderSize*2);
     ctx.canvas.width = width;
     ctx.canvas.height = height;
     //set up canvas
     ctx.font = font;
-    ctx.textBaseline = 'top';
+    ctx.textBaseline = 'middle';
+    ctx.textAlign = 'center';
+    //const scaleFactor = Math.min(1, baseWidth / width);
+    ctx.translate(width / 2, height / 2);
+    //ctx.scale(scaleFactor, 1);
     //need to re-set up canvas after resizing
-    ctx.fillStyle = 'black';
+    ctx.fillStyle = 'rgba(0,0,0,0)';
     ctx.fillRect(0, 0, width, height);
-    ctx.fillStyle = 'white';
+    ctx.fillStyle = 'red';
     ctx.fillText(name, borderSize, borderSize);
  
     return ctx.canvas;
