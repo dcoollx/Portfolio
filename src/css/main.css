@@ -97,6 +97,11 @@ header{
  .screenShot{
    width:100%;
  }
+ footer{
+  display: block;
+  background-color: black;
+  align-content: center;
+ }
  @media only screen and (min-width:760px){
   #seam{
     display:block;

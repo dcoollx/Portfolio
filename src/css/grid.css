@@ -16,11 +16,12 @@ html, body{
   margin-left:10%;
   row-gap: 10%;
   column-gap: 4%;
-  display: inline-grid;
+  display: grid;
   justify-content:center;
   align-content: space-evenly;
   grid-template-columns: 20% 20% 20% 20%;
   margin:auto;
+ 
 }
 
 .col-right,

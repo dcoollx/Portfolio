@@ -120,6 +120,8 @@ export default class Menu{
       this.renderer.setSize(parent.width,parent.height );
       this.camera.aspect = parent.width/parent.height;
       this.camera.updateProjectionMatrix();
+      this.mobile = document.body.clientHeight > document.body.clientWidth;
+      this.arrangeButtons();
     },false);
   }
   handleMouseMove(){
