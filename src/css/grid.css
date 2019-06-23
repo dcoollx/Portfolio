@@ -5,7 +5,7 @@ html, body{
   font-size: 26px;
   margin:none;
   padding:none;
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 .container{
   width:100%;

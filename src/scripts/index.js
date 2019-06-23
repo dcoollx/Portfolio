@@ -1,9 +1,15 @@
 import '../css/main.css';
 import '../css/grid.css';
-//import quiz from '../img/quizzSS_thumbnail.png';
+import quiz from '../img/quizzSS_thumbnail.png';
+import me from '../img/me.jpg';
+import park from '../img/parkSS.png';
 import THREE from 'three';
 import Menu from '../scripts/menu';
 import { TweenMax } from 'gsap';
+
+document.getElementById('me').src = me;
+document.getElementById('quiz').src = quiz;
+document.getElementById('park').src = park;
 
 let buttons = [];
 
