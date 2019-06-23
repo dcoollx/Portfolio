@@ -11,6 +11,7 @@ let buttons = [];
 let menu = new Menu();
 buttons = menu.createButtons('about_me','my_skills','my_life','my_projects','contact_me');
 menu.animate();
+document.getElementById('hamb').addEventListener('click',()=>);
 window.menu = menu;//testing purposes
 let hello = document.getElementById('welcome');
 TweenMax.from(hello,5,{opacity:0});
