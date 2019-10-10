@@ -8,20 +8,20 @@
 </head>
 <body>
   <header role="banner" class="js-menu">
-    <h1 id="welcome" class="welcome">hello!</h1>
+    <h1 id="welcome" class="welcome">hello! Im David Queen, A Full-stack Dev!</h1>
     <div id="target"></div>
   </header>
   <div class= "col-full" id="seam">
-    <nav class="container" id="main-nav">
-      <button class='nav-btn'><a href="#about_me">About me</a></button>
-      <button class='nav-btn col-quarter'><a href="#">My Skillz</a></button>
-      <button class='nav-btn col-quarter'><a href="#">My Projects</a></button>
-      <button class='nav-btn col-quarter'><a href="#">My Life</a></button>  
-    </nav>
     <button id="hamb" class='nav-btn col-quarter'>&#9776;</button>
+    <nav class="container" id="main-nav">
+      <button class='nav-btn col-quarter'><a href="#about_me">About me</a></button>
+      <button class='nav-btn col-quarter'><a href="#my_skills">My Skillz</a></button>
+      <button class='nav-btn col-quarter'><a href="#my_projects">My Projects</a></button>
+      <button class='nav-btn col-quarter'><a href="#my_life">My Life</a></button>  
+    </nav>
   </div>
   <main class="container">
-    <section class="container col-center" id="about_me">
+    <section class=" col-center" id="about_me">
       <h1 class="col-full">What Makes Me.....Me</h1>
       <p class="col-full">
           I AM DAVID S QUEEN JR. formerly of NJ, now a resident of Atlanta GA. I have been many things in my journey; a toll collector, landscaper, bus driver, but they have all been mere stops along the way to becoming what I was meant to be: A PROGRAMMER. 
@@ -29,9 +29,10 @@
       
     </section>
     <!-- my skills -->
-    <section class="container col-center"id="my_skills">
+    <section class="col-center"id="my_skills">
       <h1 class="col-full">My Skills</h1>
       <!--Maybe make this buttons that display examples-->
+      <div class="container col-center"id="my_skills">
       <button class="col-quarter">HTML5</button>
       <button class="col-quarter">CSS</button>
       <button class="col-quarter">JavaScript</button>
@@ -40,51 +41,102 @@
       <button class="col-quarter">C++</button>
       <button class="col-quarter">UI/UX</button>
       <button class="col-quarter">Git/GitHub</button>
+      </div>
     </section>
-    <section class="container col-center" id="my_life">
+    <section class=" col-center" id="my_life">
       <h2 class="col-full">My Life </h2>
       <p class="col-full">My first taste of my dream was in high school when I took a course in C++, and from there I was hooked. I loved the feeling of finding the most efficient way to solve a problem using nothing more than the logical deduction and the tools that I had. From there I began teaching myself Python, C#, HTML, PHP, then finally JavaScript.</p>
       
     </section>
-    <aside class="container col-right">
-        <q class='row-4 col-full'>Have you ever seen me and BATMAN in the same room at the same time? ....just saying.</q><br>-me</aside>
+    <aside class=" col-right">
+        <q class=''>Have you ever seen me and BATMAN in the same room at the same time? ....just saying.</q><br>-me</aside>
     
     <!-- My projects-->
-    <section class="container col-center" id="my_projects">
+    <section class=" col-center" id="my_projects">
       <h2 class="col-full">My Projects</h2>
-      <a href="https://thinkful-ei-emu.github.io/Quiz-App-Andrew-DavidQ/" class="col-half">
-      <img id= "quiz" class="screenShot"/></a><!-- "https://i.imgur.com/DzXekbX.png" -->
-     
-      <p class="col-half">an App that access the trivia DB, to provide a near endless supply of challenging questions.</p>
-      <div class="col-full extraInfo">  
-          BootStrap * jquery * npm/node * webpack
-         </div>
-       
-     <a class="col-half" href="https://thinkful-ei-emu.github.io/Complex-Get-DavidQ-Pj/">
-    <img id="park" class="screenShot"/> </a>
-     <p class="col-half">A search engine that checks for all federal parks within a given state. <div class="col-full extraInfo">  
-        RESTful * jquery * npm/node * webpack
-       </div></p>
-    
+      <div class="project" style = "background-image :url(src/img/corkboard_mockup.jpg)">
+        <h3 class="col-full">CorkBoard</h3>
+       <!--  <img class="mini" src="src\img\corkboard_mockup.jpg" alt="corkboard app login page"/> -->
+        <p class="desc col-full">An inter-organizational messaging app. This application is designed to make it easy for any employee at any level to created targted, lively messages
+        <button onclick="window.open('https://corkboard.dcoollx.now.sh/','_blank')">View Site</button>
+        </p>
+      </div>
+      <div class="project" style="background-image: url(src/img/spaced_moc_high.jpg)" >
+        <h3 class="col-full"><a href="https://spaced-repetition-client-corey-david.monorthwest.now.sh/login"></a>Spaced</h3>
+        <!-- <img class="mini" src="src/img/spaced_moc_high.jpg" alt=""> -->
+        <p class="desc col-full">A language learning app that uses the proven methodologies of spaced repetition learning algorithms
+          <button onclick="window.open('https://spaced-repetition-client-corey-david.monorthwest.now.sh/login','_blank')">View Site</button>
+        </p>
+      </div>
+      <div class="project" style="background-image: url(src/img/symptracker_mockup.jpg)">
+
+        <h3 class="col-full">Symptom tracker</h3>
+        <p class="desc col-full">A Food diary app that draws correlations between food intolerences and what you eat
+
+          <button onclick="window.open('https://symptomtracker.rambo.now.sh', '_blank')">View Site</button>
+        </p>
+      </div>
+      <div id="other_project_container"  class="project container">
+        <h3 class="other_project" style="position: relative;">other projects</h3>
+        <div id="other_project_container" class="container col-center ">
+          <div class="other col-1" style="background-color:red;background-image: url(src/img/settings.png);">
+            <p class="desc">IrrMap <br>C++, Visual Studios </p>
+          </div>
+          <div class="other col-1" style="background-color:orange;background-image: url(src/img/112154-web-navigation-line-craft/112154-web-navigation-line-craft/png/padlock.png);">
+           <p class="desc"> PageLock <br> JavaScript, browser plugin </p>
+          </div>
+          <div class="other" style="background-color:blue;background-image: url(src/img/112154-web-navigation-line-craft/112154-web-navigation-line-craft/png/new-file.png);">
+            <p class="desc">Quizz App <br> React,ExpressJS </p>
+          </div>
+        </div>
+      </div>   
+
     </section>
     <!--contact me-->
-    <section class="container col-center" id="contact_me">
+    <section class="col-center" id="contact_me">
       <h2 class="col-full">Contact me</h2>
       <div class="col-full container">
+        <div>
       <img id="me" src="src\img\me.jpg" class="col-quarter" style="border-radius: 100%"/>
-      <p></p>
-      <p class="col-half">David Queen<br>Web Developer<br><a style="color:var(--accent)" href="mailto:dsqjr@msn.com">Dsqjr@msn.com</a></p>
+      <p class="col-left"> Full-stack Software engineer <br> <strong> David Queen Jr</strong> <br><a href="mailto:dsqjr@msn.com">Dsqjr@msn.com</a> <br> (609)402-1649 <br> Douglasville, GA. </p>
+      </div>
+      <form role="form" id="contact_form" class="container col-half" action="mailto:dsqjr@msn.com" method="post" enctype="text/plain">
+          <div class="col-full" id="form_name_div">
+            <label for="name">Name</label><br>
+            <input type="text" name="name"/>
+          </div>
+          <div class="col-full">
+            <textarea  name= "mail" id="" cols="30" rows="10"></textarea>
+          </div>
+          <div class="col-center">
+            <button type="submit">Send</button><button type="reset">Cancel</button>
+          </div>
+        </form>
       </div>
     <p class="col-full"> </p>
     </section>
     <!-- footer -->
-    <footer class="container col-full">
-    <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal" data-theme="dark" data-vanity="david-queen-jr-35092a73"><a class="LI-simple-link" href='https://www.linkedin.com/in/david-queen-jr-35092a73?trk=profile-badge'>David Queen Jr</a></div>
-
-    <a href="https://github.com/dcoollx">github</a>
-    <a class="twitter-follow-button"
+    <footer id="footer" role="footer" class="container col-full">  <div>
+    <img src="https://www.w3.org/html/logo/badge/html5-badge-h-css3-graphics-multimedia-semantics.png"  alt="HTML5 Powered with CSS3 / Styling, Graphics, 3D &amp; Effects, Multimedia, and Semantics" title="HTML5 Powered with CSS3 / Styling, Graphics, 3D &amp; Effects, Multimedia, and Semantics">
+<br>
+    
+        
+    <a href="https://github.com/dcoollx">github</a> | <a class="twitter-follow-button"
     href="https://twitter.com/dcoollx">
-  Follow @dcoollx</a>&copy; 2019
+  Follow @dcoollx</a>
+ </div>
+  <div class="credits col-center">
+   This Site was made using:<br>
+     <ul>
+      <li> Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"     title="Flaticon">www.flaticon.com</a> </li>
+      <li>Webpack</li>
+      <li><a href="http://www.Threejs.org" target="_blank">Threejs</a></li>
+      <li><a href="http://www.greensock.com" target="_blank">GSAP</a>(green socks animation platform)</li>
+      <li><a href="http://www.jquery.org" target="_blank">jquery</a></li>
+      </ul>
+  </div>
+      <div class="col-right LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal" data-theme="dark" data-vanity="david-queen-jr-35092a73"><a class="LI-simple-link" href='https://www.linkedin.com/in/david-queen-jr-35092a73?trk=profile-badge'>linkedin</a></div>
+   <p class="col-right"> &copy; 2019 David Queen Jr </p>
   </footer>
   </main>
   
