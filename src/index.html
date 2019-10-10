@@ -8,17 +8,17 @@
 </head>
 <body>
   <header role="banner" class="js-menu">
-    <h1 id="welcome" class="welcome">hello!</h1>
+    <h1 id="welcome" class="welcome">hello! Im David Queen, A Full-stack Dev!</h1>
     <div id="target"></div>
   </header>
   <div class= "col-full" id="seam">
-    <nav class="container" id="main-nav">
-      <button class='nav-btn'><a href="#about_me">About me</a></button>
-      <button class='nav-btn col-quarter'><a href="#my_skills">My Skillz</a></button>
-      <button class='nav-btn col-quarter'><a href="#my_projrcts">My Projects</a></button>
-      <button class='nav-btn col-quarter'><a href="#">My Life</a></button>  
-    </nav>
     <button id="hamb" class='nav-btn col-quarter'>&#9776;</button>
+    <nav class="container" id="main-nav">
+      <button class='nav-btn col-quarter'><a href="#about_me">About me</a></button>
+      <button class='nav-btn col-quarter'><a href="#my_skills">My Skillz</a></button>
+      <button class='nav-btn col-quarter'><a href="#my_projects">My Projects</a></button>
+      <button class='nav-btn col-quarter'><a href="#my_life">My Life</a></button>  
+    </nav>
   </div>
   <main class="container">
     <section class=" col-center" id="about_me">
@@ -54,11 +54,11 @@
     <!-- My projects-->
     <section class=" col-center" id="my_projects">
       <h2 class="col-full">My Projects</h2>
-      <div class="project container" style = "background-image :url(src/img/corkboard_mockup.jpg)">
+      <div class="project" style = "background-image :url(src/img/corkboard_mockup.jpg)">
         <h3 class="col-full">CorkBoard</h3>
        <!--  <img class="mini" src="src\img\corkboard_mockup.jpg" alt="corkboard app login page"/> -->
         <p class="desc col-full">An inter-organizational messaging app. This application is designed to make it easy for any employee at any level to created targted, lively messages
-        <button onclick="window.open('https://dcoollx.corkboard.now.sh','_blank')">View Site</button>
+        <button onclick="window.open('https://corkboard.dcoollx.now.sh/','_blank')">View Site</button>
         </p>
       </div>
       <div class="project" style="background-image: url(src/img/spaced_moc_high.jpg)" >
@@ -71,7 +71,7 @@
       <div class="project" style="background-image: url(src/img/symptracker_mockup.jpg)">
 
         <h3 class="col-full">Symptom tracker</h3>
-        <p class="desc col-full">a Food diary app that draws correlations between food intolerences and what you eat
+        <p class="desc col-full">A Food diary app that draws correlations between food intolerences and what you eat
 
           <button onclick="window.open('https://symptomtracker.rambo.now.sh', '_blank')">View Site</button>
         </p>
@@ -83,10 +83,10 @@
             <p class="desc">IrrMap <br>C++, Visual Studios </p>
           </div>
           <div class="other col-1" style="background-color:orange;background-image: url(src/img/112154-web-navigation-line-craft/112154-web-navigation-line-craft/png/padlock.png);">
-           <p class="desc"> PageLock</p>
+           <p class="desc"> PageLock <br> JavaScript, browser plugin </p>
           </div>
           <div class="other" style="background-color:blue;background-image: url(src/img/112154-web-navigation-line-craft/112154-web-navigation-line-craft/png/new-file.png);">
-            <p class="desc">Quizz App</p>
+            <p class="desc">Quizz App <br> React,ExpressJS </p>
           </div>
         </div>
       </div>   
@@ -96,36 +96,47 @@
     <section class="col-center" id="contact_me">
       <h2 class="col-full">Contact me</h2>
       <div class="col-full container">
+        <div>
       <img id="me" src="src\img\me.jpg" class="col-quarter" style="border-radius: 100%"/>
-      <p></p>
-      <form id="contact_form" class="container col-half">
-          <div class="col-full">
-            <label name="name">Name</label><br>
-            <input type="text"/>
+      <p class="col-left"> Full-stack Software engineer <br> <strong> David Queen Jr</strong> <br><a href="mailto:dsqjr@msn.com">Dsqjr@msn.com</a> <br> (609)402-1649 <br> Douglasville, GA. </p>
+      </div>
+      <form role="form" id="contact_form" class="container col-half" action="mailto:dsqjr@msn.com" method="post" enctype="text/plain">
+          <div class="col-full" id="form_name_div">
+            <label for="name">Name</label><br>
+            <input type="text" name="name"/>
           </div>
           <div class="col-full">
-            <textarea name="body" id="" cols="30" rows="10"></textarea>
+            <textarea  name= "mail" id="" cols="30" rows="10"></textarea>
           </div>
           <div class="col-center">
             <button type="submit">Send</button><button type="reset">Cancel</button>
           </div>
         </form>
-      <p class="col-half">David Queen<br>Web Developer<br><a style="color:var(--accent)" href="mailto:dsqjr@msn.com">Dsqjr@msn.com</a></p>
       </div>
     <p class="col-full"> </p>
     </section>
     <!-- footer -->
-    <footer class=" col-full">
-    <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal" data-theme="dark" data-vanity="david-queen-jr-35092a73"><a class="LI-simple-link" href='https://www.linkedin.com/in/david-queen-jr-35092a73?trk=profile-badge'>David Queen Jr</a></div>
-
-    <a href="https://github.com/dcoollx">github</a>
-    <a class="twitter-follow-button"
-    href="https://twitter.com/dcoollx">
-  Follow @dcoollx</a>&copy; 2019
-
+    <footer id="footer" role="footer" class="container col-full">  <div>
     <img src="https://www.w3.org/html/logo/badge/html5-badge-h-css3-graphics-multimedia-semantics.png"  alt="HTML5 Powered with CSS3 / Styling, Graphics, 3D &amp; Effects, Multimedia, and Semantics" title="HTML5 Powered with CSS3 / Styling, Graphics, 3D &amp; Effects, Multimedia, and Semantics">
-      Credits:
-      <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"     title="Flaticon">www.flaticon.com</a></div>
+<br>
+    
+        
+    <a href="https://github.com/dcoollx">github</a> | <a class="twitter-follow-button"
+    href="https://twitter.com/dcoollx">
+  Follow @dcoollx</a>
+ </div>
+  <div class="credits col-center">
+   This Site was made using:<br>
+     <ul>
+      <li> Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"     title="Flaticon">www.flaticon.com</a> </li>
+      <li>Webpack</li>
+      <li><a href="http://www.Threejs.org" target="_blank">Threejs</a></li>
+      <li><a href="http://www.greensock.com" target="_blank">GSAP</a>(green socks animation platform)</li>
+      <li><a href="http://www.jquery.org" target="_blank">jquery</a></li>
+      </ul>
+  </div>
+      <div class="col-right LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal" data-theme="dark" data-vanity="david-queen-jr-35092a73"><a class="LI-simple-link" href='https://www.linkedin.com/in/david-queen-jr-35092a73?trk=profile-badge'>linkedin</a></div>
+   <p class="col-right"> &copy; 2019 David Queen Jr </p>
   </footer>
   </main>
   
