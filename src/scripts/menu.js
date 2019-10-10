@@ -1,7 +1,5 @@
 //this uses three js to create a 3d menu
 import * as THREE from 'three' ;
-import $ from 'jquery';
-import {TweenMax} from 'gsap/TweenMax';
 
 export default class Menu{
   constructor(){
@@ -110,7 +108,6 @@ export default class Menu{
         // widen them and stack veritcally
         b.position.set(0,((index-((this.buttons.length-(index*2))*2))*.1/2),0); //3/5*x - 3 = 0
         //b.children[0].position.set(0,0.05,0.3);
-        console.log(b.position);
       });
     }else{
       this.buttons.forEach((b, index)=>{
@@ -156,7 +153,8 @@ export default class Menu{
   }
   handleWindowResize(){
     window.addEventListener('resize',(e)=>{
-      console.log('resizeing');
+      // eslint-disable-next-line no-console
+      console.log('resizing');
       this.mobile = document.body.clientHeight > document.body.clientWidth;// true if on mobile
       let parent ={width: document.getElementById('target').getBoundingClientRect().width, height:document.getElementById('target').getBoundingClientRect().height};
       this.renderer.setSize(parent.width,parent.height );

@@ -1,16 +1,11 @@
 import '../css/main.css';
 import '../css/grid.css';
-import quiz from '../img/quizzSS_thumbnail.png';
 import me from '../img/me.jpg';
-import park from '../img/parkSS.png';
-import THREE from 'three';
 import Menu from '../scripts/menu';
 import { TweenMax } from 'gsap';
+import siema from 'siema';
 
 document.getElementById('me').src = me;
-document.getElementById('quiz').src = quiz;
-document.getElementById('park').src = park;
-
 let buttons = [];
 
 
@@ -31,3 +26,28 @@ buttons.forEach(b=>{
 TweenMax.to(hello,3,{opacity:0,delay:7});
 
 //move location center after animation
+window.showDiscription = function showDiscription(e){
+  e.preventDefault();
+  console.log('mouse over');
+  e.target.getChildElement.style.display='block';
+};
+
+let divs = document.getElementsByClassName('project');
+for(let x = 0; x < divs.length;x++){
+  divs[x].addEventListener('mouseover',(e)=>{
+    e.preventDefault();
+    e.target.childNodes.forEach(div=>{
+      if(String(div.className).includes('desc')){
+        div.style.display = 'block';
+      }
+    });
+  });
+  divs[x].addEventListener('mouseleave',(e)=>{
+    e.preventDefault();
+    e.target.childNodes.forEach(div=>{
+      if(String(div.className).includes('desc')){
+        div.style.display = 'none';
+      }
+    });
+  });
+}
