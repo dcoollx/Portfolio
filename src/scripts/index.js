@@ -3,6 +3,13 @@ import '../css/grid.css';
 import me from '../img/me.jpg';
 import Menu from '../scripts/menu';
 import { TweenMax } from 'gsap';
+import spacedMockup from '../../src/img/spaced_moc_high.jpg';
+import corkMockup from '../../src/img/corkboard_mockup.jpg';
+import symptomMockup from '../../src/img/symptracker_mockup.jpg';
+import irrMap from '../../src/img/settings.png';
+import pageLock from '../../src/img/112154-web-navigation-line-craft/112154-web-navigation-line-craft/png/padlock.png';
+import quizzApp from '../../src/img/112154-web-navigation-line-craft/112154-web-navigation-line-craft/png/new-file.png';
+import $ from 'jquery';
 
 //hambuger button
 let mainNav =document.getElementsByTagName('nav')[0];
@@ -13,8 +20,15 @@ hamb.addEventListener('click',(e)=>{
 mainNav.addEventListener('focusout',(e)=>{
   mainNav.style.display = 'none';
 });
-
+//set images to reference for webpack;
 document.getElementById('me').src = me;
+$('#spaced').css('background-image',`url(${spacedMockup})`);
+$('#corkboard').css('background-image',`url(${corkMockup})`);
+$('#symptom').css('background-image',`url(${symptomMockup})`);
+$('#irrMap').css('background-image',`url(${irrMap})`);
+$('#pageLock').css('background-image',`url(${pageLock})`);
+$('#pageLock').css('background-image',`url(${pageLock})`);
+$('#quizzApp').css('background-image',`url(${quizzApp})`);
 let buttons = [];
 
 
