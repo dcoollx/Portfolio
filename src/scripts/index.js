@@ -12,13 +12,21 @@ import quizzApp from '../../src/img/112154-web-navigation-line-craft/112154-web-
 import $ from 'jquery';
 
 //hambuger button
+window.onload = (e) =>{
+  //once loaded remove loading screen
+  console.log('loaded');
+  document.getElementById('loading').style.display='none';
+};
 let mainNav =document.getElementsByTagName('nav')[0];
 let hamb = document.getElementById('hamb');
 hamb.addEventListener('click',(e)=>{
   mainNav.style.display = 'grid';
 });
 mainNav.addEventListener('focusout',(e)=>{
-  mainNav.style.display = 'none';
+  if(!window.matchMedia('(min-width:760px)').matches)//we are not in desktop mode
+  {
+    mainNav.style.display = 'none';
+  }
 });
 //set images to reference for webpack;
 document.getElementById('me').src = me;

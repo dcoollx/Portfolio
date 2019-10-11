@@ -8,7 +8,7 @@
     "build": "webpack",
     "start": "webpack-dev-server",
     "predeploy": "npm run build",
-    "deploy": "git subtree push --prefix=dist origin gh-pages"
+    "deploy": "git subtree push --prefix dist origin gh-pages"
   },
   "repository": {
     "type": "git",

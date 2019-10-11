@@ -49,7 +49,7 @@ export default class Menu{
     this.main.material.opacity = 0.0;
     this.main.material.color.set(0xFF0000);
     this.objects.push(this.main);
-    for(let x =1;x<=50;x++){
+    for(let x =1;x<=200;x++){//generates random boxes currently set to 75
       var geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
       var material = new THREE.MeshStandardMaterial({color:0xffffff});
       this.objects.push(new THREE.Mesh( geometry, material ));

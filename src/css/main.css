@@ -25,6 +25,7 @@ header,canvas, #target{
   background-color: black;
   text-align: center;
   color:white;
+  border-bottom: ridge 5px red;
 }
 #main-nav{
   display:none;

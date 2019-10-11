@@ -6,7 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>David Queen</title>
 </head>
-<body>
+<body><div id="loading" style="background-color:black;z-index:2;position: fixed;top:0px;left:0px; height:100Vh; width:100vw; margin:0px"><!-- styled in dom so loads in fast -->
+  <progress style="position: absolute; top:50%;left:50%;"></progress><!-- this div is to hide the loading it will be full screen until "onLoad event fires" -->
+</div>
   <header role="banner" class="js-menu">
     <h1 id="welcome" class="welcome">hello! Im David Queen, A Full-stack Dev!</h1>
     <div id="target"></div>
@@ -102,13 +104,13 @@
       <h2 class="col-full">Contact me</h2>
       <div class="col-full container">
         <div>
-      <img id="me" src="src\img\me.jpg" class="col-quarter" style="border-radius: 100%"/>
+      <img id="me" alt="David Queen Jr, me" src="src\img\me.jpg" class="col-quarter" style="border-radius: 100%"/>
       <p class="col-left"> Full-stack Software engineer <br> <strong> David Queen Jr</strong> <br><a href="mailto:dsqjr@msn.com">Dsqjr@msn.com</a> <br> (609)402-1649 <br> Douglasville, GA. </p>
       </div>
       <form role="form" id="contact_form" class="container col-half" action="mailto:dsqjr@msn.com" method="post" enctype="text/plain">
           <div class="col-full" id="form_name_div">
             <label for="name">Name</label><br>
-            <input type="text" name="name"/>
+            <input id="name" type="text" name="name"/>
           </div>
           <div class="col-full">
             <textarea  name= "mail" id="" cols="30" rows="10"></textarea>
