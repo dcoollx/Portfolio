@@ -7,29 +7,48 @@
   <title>David Queen</title>
 </head>
 <body><div id="loading" style="background-color:black;z-index:2;position: fixed;top:0px;left:0px; height:100Vh; width:100vw; margin:0px"><!-- styled in dom so loads in fast -->
-  <progress style="position: absolute; top:50%;left:50%;"></progress><!-- this div is to hide the loading it will be full screen until "onLoad event fires" -->
+  <progress style="margin:auto;"></progress><!-- this div is to hide the loading it will be full screen until "onLoad event fires" -->
+  <p onclick="()=>window.location.assign('/')">Click here if the loading isnt complete within a few seconds</p>
 </div>
   <header role="banner" class="js-menu">
-    <h1 id="welcome" class="welcome">hello! Im David Queen, A Full-stack Dev!</h1>
-    <div id="target"></div>
+    <div id="welcome_card" class="card">
+      Welcome to <span class="emph">David Queen's</span> Portfolio
+    </div>
+    <div id="welcome" class="card">
+      <h1 class="welcome">Hello! I'm <span class="emph">David Queen</span></h1><h3> A Full-stack <span>Developer!</span></h3>
+      <a href="#about_me">View Work</a>
+    </div>
+    <div id="animated_nav" class="card">
+      <ul>
+      <li><a href="#about_me">Who Is David Queen?</a></li>
+      <li><a href="#my_skills">What Are His Specialities?</a></li>
+      <li><a href="#my_projects">What Has He Worked On?</a></li>
+      <li><a href="#my_life">Why Did He Become a Developer?</a></li>
+    </ul>
+    </div>
+    <div id="target">
+      </div>
+      <button id="hamb" class='nav-btn col-quarter'>&#9776;</button>
+      <nav class="container" id="main-nav">
+        <p></p>
+        <a class='nav-btn col-quarter' href="#about_me">about me</a>
+        <a class='nav-btn col-quarter' href="#my_skills">my skill</a>
+        <a class='nav-btn col-quarter' href="#my_projects">my projects</a>
+        <a class='nav-btn col-quarter' href="#my_life">my life</a>
+      </nav>
+        
   </header>
-  <div class= "col-full" id="seam">
-    <button id="hamb" class='nav-btn col-quarter'>&#9776;</button>
-    <nav class="container" id="main-nav">
-      <button class='nav-btn col-quarter'><a href="#about_me">About me</a></button>
-      <button class='nav-btn col-quarter'><a href="#my_skills">My Skillz</a></button>
-      <button class='nav-btn col-quarter'><a href="#my_projects">My Projects</a></button>
-      <button class='nav-btn col-quarter'><a href="#my_life">My Life</a></button>  
-    </nav>
-  </div>
   <main class="container">
     <section class=" col-center" id="about_me">
       <h2 class="col-full">What Makes Me.....Me</h2>
       <p class="col-full">
           I AM DAVID S QUEEN JR. formerly of NJ, now a resident of Atlanta GA. I have been many things in my journey; a toll collector, landscaper, bus driver, but they have all been mere stops along the way to becoming what I was meant to be: A PROGRAMMER. 
       </p>
+     
       
     </section>
+    <div class="col-right" id="about_me_animation">
+    </div>
     <!-- my skills -->
     <section class="col-center"id="my_skills">
       <h2 class="col-full">My Skills</h2>
@@ -103,7 +122,7 @@
     </section>
     <!--contact me-->
     <section class="col-center" id="contact_me">
-      <h2 class="col-full">Contact me</h2>
+      <h2 class="col-full" id="blue">Contact me</h2>
       <div class="col-full container">
         <div>
       <img id="me" alt="David Queen Jr, me" src="src\img\me.jpg" class="col-quarter" style="border-radius: 100%"/>

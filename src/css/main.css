@@ -1,39 +1,79 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+/* variables */
+:root{
+--black: #070b34;
+--base: #131862;
+--dark: #2E4482;
+--light: #546BAB;
+--neutral: #87889C;
+--accent:#BEA9DE;
+--emph:#c33764 ;
+}
+body{
+  background:linear-gradient(black, #1d2671 , #c33764  );
+  color:white;
+}
 main{
   font-family: 'Roboto', sans-serif;
   height: fit-content;
   width:100vw;
+  
+}
+h2{
+  color:var(--emph);
 }
 a{
   text-decoration: none;
-  color:red;
+}
+.emph{
+  color:var(--emph);
 }
 
-header,canvas, #target{
+canvas, #target{
   width:100%;
-  height:95vh;
+  height:100vh;
+  position: relative;
+}
+.card{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color:white;  
+  border-radius: 25px;
+  padding: 50px;
+  position: absolute;
+  background-color: rgba(0,0,0,0.3);
+  z-index: 100;
+}
+#welcome_card{
+
+  left:20%;
+  top:20%;
+  
 }
 #welcome{
-  color:red;
-  position: absolute;
-  top:50%;
+
   left:20%;
+  top:20%;
+  
+}
+#animated_nav{
+ 
+  right:20%;
+  top:20%;
+  
 }
 
 
-#seam{
-  height:5vh;
-  background-color: black;
-  text-align: center;
-  color:white;
-  border-bottom: ridge 5px red;
-}
 #main-nav{
   display:none;
-  padding: 0px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   background-color: rgba(0,0,0,0.3);
   line-height: 30px;
   font-size: 26px;
+  border-bottom: var(--black) 5px solid;
+}
+#main-nav a{
+  color:white;
 }
 form#contact_form{
   border:solid 2px grey;
@@ -93,6 +133,17 @@ ul{
 #other_project_container{
   padding: 0px;
 }
+#my_skills button{
+  background-color: rgba(0,0,0,0.3);
+  border:none;
+  
+}
+#blue{
+  color:var(--base);
+}
+section{
+  margin-top:0px;
+}
 @media only screen and (min-width:760px){/* desktop view */
   #form_name_div{
     padding: 20px;
@@ -133,9 +184,7 @@ ul{
   }
   nav{
     display: block;
-  }
-  nav > button{
-    font-size: 115%;
+    color:var(--accent);
   }
   main{
     height: fit-content;
@@ -146,8 +195,16 @@ ul{
   #hamb{
     display: none;
   }
+  #navigation{
+    position: absolute;
+    bottom: 0px;
+    width:100vw;
+  }
   #main-nav{
+    position: sticky;
     display:grid;
+    width:100vw;
+    background-color: rgba(0,0,0,0.3);
   }
   .project{
     background-size: cover;
@@ -156,5 +213,6 @@ ul{
   }
   section{
     margin-top:200px;
+    padding: left 1000px, right 100px;
   }
 }

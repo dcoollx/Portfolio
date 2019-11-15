@@ -1,5 +1,6 @@
 //this uses three js to create a 3d menu
 import * as THREE from 'three' ;
+import { TweenMax } from 'gsap';
 
 export default class Menu{
   constructor(){
@@ -8,6 +9,34 @@ export default class Menu{
     this.mainLight;
     this.scene;
     this.raycaster;
+    this.buzzWords = [
+      'Agile',
+      'JavaScript',
+      'HTML5',
+      'CSS3',
+      '</>',
+      'React.js',
+      'Frontend',
+      'SQL',
+      'Express.js',
+      'Node.js',
+      'jQuery',
+      'Mocha',
+      'Jest',
+      'Design',
+      'Server',
+      'Front-end',
+    ];
+    this.colors = [
+      0x131862,
+      0x2E4482,
+      0xFF0000,
+      0x005500,
+      0x0000FF,
+      0x546BAB,
+      0x87889C,
+      0xBEA9DE
+    ];
     this.renderer;
     this.geometry;
     this.material;
@@ -32,11 +61,11 @@ export default class Menu{
     this.camera.position.z = 1;
  
     this.scene = new THREE.Scene();
-    //this.scene.background = new THREE.Color('#1a323e');
+    //this.scene.background = new THREE.Color( 'darkgrey');//#1a323e
     this.mainLight = new THREE.PointLight();
-    let crossLight = new THREE.PointLight();
-    var ambLigh2 = new THREE.PointLight(0xffffff,1);
-    this.scene.add(this.mainLight,ambLigh2,crossLight);//ambLigh2
+    //let crossLight = new THREE.PointLight();
+    //var ambLigh2 = new THREE.PointLight(0xffffff,1);
+    this.scene.add(this.mainLight);//,ambLigh2,crossLight);//ambLigh2
     this.mainLight.position.z = 20;
     this.mainLight.position.x = 10;
     //
@@ -49,10 +78,14 @@ export default class Menu{
     this.main.material.opacity = 0.0;
     this.main.material.color.set(0xFF0000);
     this.objects.push(this.main);
-    for(let x =1;x<=200;x++){//generates random boxes currently set to 75
-      var geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
-      var material = new THREE.MeshStandardMaterial({color:0xffffff});
-      this.objects.push(new THREE.Mesh( geometry, material ));
+    for(let x =1;x<=1000;x++){//generates random boxes currently set to 75
+      var geometry = new THREE.BoxGeometry( 0.008, 0.008, 0.008 );
+      var material = new THREE.MeshBasicMaterial({color:this.colors[Math.floor(Math.random() * (this.colors.length + 1))]});
+      //let label = this.createLabel(this.buzzWords[x % this.buzzWords.length], Math.floor(Math.random()* 26));
+      let obj = new THREE.Mesh( geometry, material );
+      //obj.add(label);
+      obj.material.transparent = true;
+      this.objects.push(obj);
       this.objects[x].position.x = (Math.random()*10)-5;
       this.objects[x].position.z = (Math.random()*10)-5;
       this.objects[x].position.y = (Math.random()*10)-5;
@@ -64,7 +97,7 @@ export default class Menu{
     this.objects.forEach((o)=>{  this.scene.add(o);});
     this.main.add(this.camera);// attaches camera to main object.
  
-    this.renderer = new THREE.WebGLRenderer( { antialias: true } );
+    this.renderer = new THREE.WebGLRenderer( { antialias: true, alpha:true } );
     this.renderer.setSize(parent.width,parent.height );
     //this.renderer.setClearColor(0xFF0000);
     document.getElementById('target').appendChild( this.renderer.domElement );//needs to be changed to parent canvas
@@ -75,17 +108,20 @@ export default class Menu{
   * @param  {...string} names
   * @returns {Array} buttons -objects with those names added 
   */
+  createLabel(word, font=26){
+    const canvas = this.makeLabels(word,font);
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.minFilter = THREE.LinearFilter;
+    texture.wrapS = THREE.ClampToEdgeWrapping;
+    texture.wrapT = THREE.ClampToEdgeWrapping;
+    const labelMat = new THREE.SpriteMaterial({map:texture, transparent:true});
+    return new THREE.Sprite(labelMat);
+  }
   createButtons(...names){
 
     this.buttons = names.map((name)=>{
       //label
-      const canvas = this.makeLabels(name);
-      const texture = new THREE.CanvasTexture(canvas);
-      texture.minFilter = THREE.LinearFilter;
-      texture.wrapS = THREE.ClampToEdgeWrapping;
-      texture.wrapT = THREE.ClampToEdgeWrapping;
-      const labelMat = new THREE.SpriteMaterial({map:texture, transparent:true});
-      const label = new THREE.Sprite(labelMat);
+      const label = this.createLabel(name);
 
       //button geometry
       let geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
@@ -96,6 +132,9 @@ export default class Menu{
       label.scale.set(0.2,0.05,0.2);
       btn.buttonName = name;//name appended to object to signify that is is a button
       this.scene.add(btn);
+      //add bobble animation
+
+      //TweenMax.from(btn.rotation,10,{x:0.1,y:0.1,repeat:true});
       return btn;
     });
     this.objects.push(...this.buttons);//add all new buttons to objects
@@ -117,11 +156,11 @@ export default class Menu{
     }
 
   }
-  makeLabels(name){
+  makeLabels(name, fontSize=26){
     const ctx = document.createElement('canvas').getContext('2d');
     let baseWidth = 140;
     const borderSize =2;
-    const font = '26px bold sans serif';
+    const font = `${fontSize}px bold sans-serif`;
     ctx.font = font;
     const width = baseWidth + (borderSize*2);
     const height = 26 +  (borderSize*2);
@@ -193,8 +232,9 @@ export default class Menu{
       this.raycaster.setFromCamera(mouse,this.camera);
       var intersects = this.raycaster.intersectObjects(this.scene.children);
       this.objects.forEach((object)=>{
+        let prevColor = object.material.color;
         if(!intersects.includes(object)){
-          object.material.color.set(0xffffff);
+          object.material.color.set(prevColor);
         }
       });
       intersects.forEach((o)=>{
