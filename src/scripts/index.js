@@ -25,6 +25,7 @@ window.onload = (e) =>{
   //once loaded remove loading screen
   console.log('loaded');
   document.getElementById('loading').style.display='none';
+  allAnimations();
 };
 let mainNav =document.getElementsByTagName('nav')[0];
 let hamb = document.getElementById('hamb');
@@ -50,26 +51,30 @@ let buttons = [];
 
 
 let menu = new Menu();
-let mini1 = new mini(document.getElementById('about_me_animation')); 
+//let mini1 = new mini(document.getElementById('about_me_animation')); 
 //buttons = menu.createButtons('about_me','my_skills','my_life','my_projects','contact_me');
 menu.animate();
 //animations
 window.menu = menu;//testing purposes
-let hello = document.getElementById('welcome_card');
-TweenMax.from(hello,3,{opacity:0, left:'0px'});
-TweenMax.to(hello,3,{opacity:0, left:'0px',delay:4});
-TweenMax.from(document.getElementById('animated_nav'),3,{opacity:0, right:'0px',delay:7});
-TweenMax.to(document.getElementById('animated_nav'),3,{opacity:0, top:'0px',delay:10});
-TweenMax.from(document.getElementById('welcome'),3,{opacity:0, right:'0px',delay:13});
-TweenMax.from(menu.mainLight,6,{intensity:0});
-TweenMax.from(menu.main.rotation,5,{x:'+=2',delay:3});
-TweenMax.from(menu.main.rotation,5,{y:'+=2',delay:7});
-TweenMax.from(menu.main.position,5,{x:5,delay:7}); 
-/* buttons.forEach(b=>{
+function allAnimations(){
+  let hello = document.getElementById('welcome_card');
+  TweenMax.from(hello,3,{opacity:0, left:'0px'});
+  TweenMax.to(hello,3,{opacity:0, left:'0px',delay:4});
+  TweenMax.from(document.getElementById('animated_nav'),3,{opacity:0, right:'0px',delay:7});
+  TweenMax.to(document.getElementById('animated_nav'),3,{opacity:0, top:'0px',delay:10});
+  TweenMax.from(document.getElementById('welcome'),3,{opacity:0,delay:13});
+  TweenMax.from(menu.mainLight,6,{intensity:0});
+  TweenMax.from(menu.main.rotation,5,{x:'+=2',delay:3});
+  TweenMax.from(menu.main.rotation,5,{y:'+=2',delay:7});
+  TweenMax.from(menu.main.position,5,{x:5,delay:7});
+  TweenMax.from(document.getElementById('continue_btn'),3,{opacity:0,delay:16}) 
+  /* buttons.forEach(b=>{
   TweenMax.from(b.position,5,{x:Math.random()*10,y:Math.random()*10,delay:7});
 }); */
-//TweenMax.to(hello,3,{opacity:0,delay:7});
-TweenMax.to(menu.main.rotation,5000,{x:360,delay:10,repeat:-1});
+  //TweenMax.to(hello,3,{opacity:0,delay:7});
+  TweenMax.to(menu.main.rotation,5000,{x:360,delay:10,repeat:-1});
+}
+
 
 
 //move location center after animation

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>David Queen</title>
 </head>
-<body><div id="loading" style="background-color:black;z-index:2;position: fixed;top:0px;left:0px; height:100Vh; width:100vw; margin:0px"><!-- styled in dom so loads in fast -->
+<body><div id="loading" style="background-color:black;z-index:100;position: fixed;top:0px;left:0px; height:100Vh; width:100vw; margin:0px"><!-- styled in dom so loads in fast -->
   <progress style="margin:auto;"></progress><!-- this div is to hide the loading it will be full screen until "onLoad event fires" -->
   <p onclick="()=>window.location.assign('/')">Click here if the loading isnt complete within a few seconds</p>
 </div>
@@ -16,7 +16,7 @@
     </div>
     <div id="welcome" class="card">
       <h1 class="welcome">Hello! I'm <span class="emph">David Queen</span></h1><h3> A Full-stack <span>Developer!</span></h3>
-      <a href="#about_me">View Work</a>
+      <a id="continue_btn" href="#about_me">See More &#8964; </a>
     </div>
     <div id="animated_nav" class="card">
       <ul>
@@ -47,35 +47,45 @@
      
       
     </section>
-    <div class="col-right" id="about_me_animation">
-    </div>
+    <!-- <div class="col-right" id="about_me_animation">
+    </div> -->
     <!-- my skills -->
     <section class="col-center"id="my_skills">
       <h2 class="col-full">My Skills</h2>
       <!--Maybe make this buttons that display examples-->
-      <div class="container col-center"id="my_skills">
-      <button class="col-quarter">HTML5</button>
-      <button class="col-quarter">CSS</button>
-      <button class="col-quarter">JavaScript</button>
-      <button class="col-quarter">Node</button>
-      <button class="col-quarter">Python</button>
-      <button class="col-quarter">C++</button>
-      <button class="col-quarter">UI/UX</button>
-      <button class="col-quarter">Git/GitHub</button>
-      <button class="col-quarter">Object Oriented Programming</button>
-      <button class="col-quarter">Native Development (cordova)</button>
-      <button class="col-quarter">MVC-ReactJS</button>
-      <button class="col-quarter">RESTful API</button>
+      <div class="container col-center"id="my_skills_list">
+      <button class="skill col-quarter">HTML5</button>
+      <button class="skill col-quarter">CSS</button>
+      <button class="skill col-quarter">JavaScript</button>
+      <button class="skill col-quarter">Node</button>
+      <button class="skill col-quarter">Python</button>
+      <button class="skill col-quarter">C++</button>
+      <button class="skill col-quarter">UI/UX</button>
+      <button class="skill col-quarter">Git/GitHub</button>
+      <button class="skill col-quarter">Object Oriented Programming</button>
+      <button class="skill col-quarter">Native Development (cordova)</button>
+      <button class="skill col-quarter">MVC-ReactJS</button>
+      <button class="skill col-quarter">Java</button>
+      <button class="skill col-quarter">npm</button>
+      <button class="skill col-quarter">webGL</button>
+      <button class="skill col-quarter">Git/Github</button>
+      <button class="skill col-quarter">TypeScript</button>
+      <button class="skill col-quarter">GML</button>
+      <button class="skill col-quarter">Adobe suites</button>
+      <button class="skill col-quarter">RESTful API</button>
+      <button class="skill col-quarter">RESTful API</button>
+      <button class="skill col-quarter">RESTful API</button>
+
       </div>
     </section>
+    <aside class=" col-right">
+        <q class=''>Have you ever seen me and BATMAN in the same room at the same time? ....just saying.</q><br>-me</aside>
+    
     <section class=" col-center" id="my_life">
       <h2 class="col-full">My Life </h2>
       <p class="col-full">My first taste of my dream was in high school when I took a course in C++, and from there I was hooked. I loved the feeling of finding the most efficient way to solve a problem using nothing more than the logical deduction and the tools that I had. From there I began teaching myself Python, C#, HTML, PHP, then finally JavaScript. With new technology being developed and released regularly, there is always something new and exciting to learn, master, then use to solve the worlds next problem.</p>
       
     </section>
-    <aside class=" col-right">
-        <q class=''>Have you ever seen me and BATMAN in the same room at the same time? ....just saying.</q><br>-me</aside>
-    
     <!-- My projects-->
     <section class=" col-center" id="my_projects">
       <h2 class="col-full">My Projects</h2>

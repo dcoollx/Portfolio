@@ -42,7 +42,7 @@ canvas, #target{
   padding: 50px;
   position: absolute;
   background-color: rgba(0,0,0,0.3);
-  z-index: 100;
+  z-index: 10;
 }
 #welcome_card{
 
@@ -51,7 +51,7 @@ canvas, #target{
   
 }
 #welcome{
-
+  padding: 75px;
   left:20%;
   top:20%;
   
@@ -75,10 +75,21 @@ canvas, #target{
 #main-nav a{
   color:white;
 }
+#continue_btn{
+  text-align: right;
+  position: absolute;
+  right:10px;
+}
 form#contact_form{
   border:solid 2px grey;
   border-radius: 10px;
   padding: 20px;
+}
+form#contact_form button{
+  background-color: var(--base);
+  border-radius: 0px;
+  color:white;
+  border:none;
 }
 p{
   padding:10px;
@@ -103,8 +114,15 @@ h3{
 q{
   color:grey;
 }
+#my_skills_list{
+
+}
+.skill:hover{
+  color:var(--accent);
+}
 aside{
   padding: 20px;
+  padding-top:200px;
 }
 #footer{
   color:white;
@@ -143,6 +161,9 @@ ul{
 }
 section{
   margin-top:0px;
+  background-color: rgba(0,0,0,0.3);
+  padding: 5%;
+  border-radius: 25px;;
 }
 @media only screen and (min-width:760px){/* desktop view */
   #form_name_div{
@@ -170,14 +191,7 @@ section{
     width:200px;
     background-repeat: no-repeat;
   }
-  #my_skills{
-    row-gap: 25%;
-    column-gap: 1%;
-    grid-template-columns: auto auto auto auto;
-  }
-  #my_skills > button{
-    padding: 15px;
-  }
+
   p{
     font-size: 26px;
     line-height: 40px;
@@ -185,6 +199,9 @@ section{
   nav{
     display: block;
     color:var(--accent);
+  }
+  .nav-btn{
+    padding-top:20px;
   }
   main{
     height: fit-content;
@@ -202,9 +219,19 @@ section{
   }
   #main-nav{
     position: sticky;
+    top:0px;
     display:grid;
     width:100vw;
     background-color: rgba(0,0,0,0.3);
+  }
+  .skill{
+    color:var(--accent);
+    margin:5px;
+    font-size: 100%;
+    padding: 5px;
+  }
+  .skill:hover{
+    color:var(--emph);
   }
   .project{
     background-size: cover;
@@ -213,6 +240,6 @@ section{
   }
   section{
     margin-top:200px;
-    padding: left 1000px, right 100px;
+
   }
 }
