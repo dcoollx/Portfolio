@@ -6,7 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "postbuild":"git add . && git commit -m 'new deployment'",
     "start": "webpack-dev-server",
     "predeploy": "npm run build",
     "deploy": "git subtree push --prefix dist origin gh-pages"
