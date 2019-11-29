@@ -26,21 +26,24 @@
       <li><a href="#my_life">Why Did He Become a Developer?</a></li>
     </ul>
     </div>
-    <div id="target">
+    <div id="target"><!-- <p id="replay">replay</p> -->
       </div>
-      <button id="hamb" class='nav-btn col-quarter'>&#9776;</button>
-      <nav class="container" id="main-nav">
-        <p></p>
-        <a class='nav-btn col-quarter' href="#about_me">about me</a>
-        <a class='nav-btn col-quarter' href="#my_skills">my skill</a>
-        <a class='nav-btn col-quarter' href="#my_projects">my projects</a>
-        <a class='nav-btn col-quarter' href="#my_life">my life</a>
-      </nav>
-        
+      
   </header>
+  <div id="nav-floater">
+    <button id="hamb" class='nav-btn col-quarter'>&#9776;</button>
+    <nav class="container" id="main-nav">
+      <div class="container col-center">
+      <a class='nav-btn col-quarter' href="#about_me">about me</a>
+      <a class='nav-btn col-quarter' href="#my_skills">my skill</a>
+      <a class='nav-btn col-quarter' href="#my_projects">my projects</a>
+      <a class='nav-btn col-quarter' href="#my_life">my life</a>
+    </div>
+    </nav>
+    </div>
   <main class="container">
     <section class=" col-center" id="about_me">
-      <h2 class="col-full">What Makes Me.....Me</h2>
+      <h2 class="col-full">Who is David Queen</h2>
       <p class="col-full">
           I AM DAVID S QUEEN JR. formerly of NJ, now a resident of Atlanta GA. I have been many things in my journey; a toll collector, landscaper, bus driver, but they have all been mere stops along the way to becoming what I was meant to be: A PROGRAMMER. 
       </p>
@@ -62,7 +65,7 @@
       <button class="skill col-quarter">C++</button>
       <button class="skill col-quarter">UI/UX</button>
       <button class="skill col-quarter">Git/GitHub</button>
-      <button class="skill col-quarter">Object Oriented Programming</button>
+      <button class="skill col-quarter">OOPs</button>
       <button class="skill col-quarter">Native Development (cordova)</button>
       <button class="skill col-quarter">MVC-ReactJS</button>
       <button class="skill col-quarter">Java</button>
@@ -78,7 +81,7 @@
 
       </div>
     </section>
-    <aside class=" col-right">
+    <aside class=" col-center">
         <q class=''>Have you ever seen me and BATMAN in the same room at the same time? ....just saying.</q><br>-me</aside>
     
     <section class=" col-center" id="my_life">
@@ -116,23 +119,26 @@
         </p>
       </div>
       <div id="other_project_container"  class="project container">
-        <div id="other_project_container" class="container col-center ">
-          <div id="irrMap" class="other col-1" style="background-color:red">
-            <p class="desc"> <a href="https://github.com/dcoollx/TileMapLoaderForIRR"><strong>IrrMap</strong> </a><br> <i> C++, Visual Studios </i></p>
-          </div>
-          <div id="pageLock" class="other col-1" style="background-color:orange;">
-           <p class="desc"> <a href="https://github.com/dcoollx/PageLock"><strong>PageLock</strong> </a><br> <i> JavaScript, browser plugin</i> </p>
-          </div>
-          <div id="quizzApp" class="other" style="background-color:blue;">
-            <p class="desc"><a href="https://thinkful-ei-emu.github.io/Quiz-App-Andrew-DavidQ/"> <strong>Quiz App</strong></a> <br> <i> React,ExpressJS</i> </p>
-          </div>
+          <ul>
+            <li>
+              <p class="other_projects"> <a href="https://github.com/dcoollx/TileMapLoaderForIRR"><strong>IrrMap</strong> </a><br> <i> C++, Visual Studios </i></p>
+            </li>
+            <li>
+              <p class="other_projects"> <a href="https://github.com/dcoollx/PageLock"><strong>PageLock</strong> </a><br> <i> JavaScript, browser plugin</i> </p>
+            </li>
+            <li>
+              <p class="other_projects"><a href="https://thinkful-ei-emu.github.io/Quiz-App-Andrew-DavidQ/"> <strong>Quiz App</strong></a> <br> <i> React,ExpressJS</i> </p>
+
+            </li>
+          </ul>
+
         </div>
       </div>   
 
     </section>
     <!--contact me-->
     <section class="col-center" id="contact_me">
-      <h2 class="col-full" id="blue">Contact me</h2>
+      <h2 class="col-full" id="blue">Contact Me</h2>
       <div class="col-full container">
         <div>
       <img id="me" alt="David Queen Jr, me" src="src\img\me.jpg" class="col-quarter" style="border-radius: 100%"/>

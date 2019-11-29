@@ -30,7 +30,11 @@ window.onload = (e) =>{
 let mainNav =document.getElementsByTagName('nav')[0];
 let hamb = document.getElementById('hamb');
 hamb.addEventListener('click',(e)=>{
-  mainNav.style.display = 'grid';
+  if(mainNav.style.display !== 'grid'){
+    mainNav.style.display = 'grid';
+  }else{
+    mainNav.style.display = 'none';
+  }
 });
 mainNav.addEventListener('focusout',(e)=>{
   if(!window.matchMedia('(min-width:760px)').matches)//we are not in desktop mode
@@ -56,6 +60,7 @@ let menu = new Menu();
 menu.animate();
 //animations
 window.menu = menu;//testing purposes
+$('#replay').click(()=>allAnimations());
 function allAnimations(){
   let hello = document.getElementById('welcome_card');
   TweenMax.from(hello,3,{opacity:0, left:'0px'});

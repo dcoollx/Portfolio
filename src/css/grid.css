@@ -6,11 +6,11 @@ html, body{
   box-sizing: border-box;
 }
 .container{
-  row-gap: 4%;
+  row-gap: 1%;
   display: grid;
   grid-template-columns: auto auto auto;
   margin:auto;
-  padding: 20px;
+  padding: 0px;
  
 }
 
@@ -20,6 +20,7 @@ html, body{
 .col-quarter,
 .col-full{
   grid-column: span 3;
+  margin:auto;
 }
   
   

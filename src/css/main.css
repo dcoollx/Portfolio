@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Courgette&display=swap');
 
 /* variables */
 :root{
@@ -23,6 +24,8 @@ main{
 }
 h2{
   color:var(--emph);
+  font-family: 'Courgette', cursive;
+  margin-bottom: 7% !important;
 }
 a{
   text-decoration: none;
@@ -37,7 +40,7 @@ canvas, #target{
   position: relative;
 }
 .card{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Courgette', cursive;
   color:white;  
   border-radius: 25px;
   padding: 50px;
@@ -68,7 +71,7 @@ canvas, #target{
 #main-nav{
   display:none;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  background-color: rgba(0,0,0,0.3);
+
   line-height: 30px;
   font-size: 26px;
   border-bottom: var(--black) 5px solid;
@@ -82,7 +85,7 @@ canvas, #target{
   right:10px;
 }
 form#contact_form{
-  border:solid 2px grey;
+  border:solid 2px var(--base);
   border-radius: 10px;
   padding: 20px;
 }
@@ -91,11 +94,15 @@ form#contact_form button{
   border-radius: 0px;
   color:white;
   border:none;
+  border-radius: 10px;
+  font-size: 1em;
 }
 .skill{
   color:var(--accent);
   margin:5px;
-  font-size: 100%;
+  width:100%;
+  height:1.5em;
+  font-size: 95%;
   padding: 5px;
 }
 .skill:hover{
@@ -115,29 +122,43 @@ h3{
   display:none;
   background-color: rgba(0,0,0,0.3);
   color:white;
-  padding: 0px;
+  padding: 15px;
+}
+.desc button{
+  background-color: var(--base);
+  border: none;
+  color:white;
+  font-size: 0.75em;
+  padding: 10px;
+}
+.desc button:hover{
+  color:var(--accent);
 }
 .project{
   background-size: cover;
   height:80vw;
+  width:100vw;
 }
 q{
   color:grey;
 }
 #my_skills_list{
-
+width:100%;
+overflow-y: scroll;
 }
 .skill:hover{
   color:var(--accent);
 }
 aside{
-  padding: 20px;
-  padding-top:200px;
+ max-width:85vw;
+}
+#contact_me{
+  background-color: rgba(255,255,255,0.1);
 }
 #footer{
   color:white;
+  box-sizing: border-box;
   width:100vw;
-  margin-left:-20px;
   height:fit-content;
   background-color:#303336;
   font-size: 50%;
@@ -155,12 +176,20 @@ ul{
   background-repeat: no-repeat;
   padding: 0px;
 }
-.other_project{
-  display:none;
+.other_projects{
+  margin:0px;
 }
 #other_project_container{
   padding: 0px;
 }
+#my_projects{
+  padding:0px;
+}
+
+#my_projects h2{
+padding-left:15%;
+}
+
 #my_skills button{
   background-color: rgba(0,0,0,0.3);
   border:none;
@@ -172,20 +201,42 @@ ul{
 section{
   margin-top:0px;
   background-color: rgba(0,0,0,0.3);
-  padding: 5%;
-  border-radius: 25px;
-  max-width:75vw;
+  padding: 15%;
+  height:fit-content;
+  width:100vw;
+  box-sizing: border-box;
 }
+section p{
+  margin-left:0px;
+  padding-left:0px;
+}
+
 #hamb{
   color:white;
   background-color: rgba(0,0,0,0.3);
   border:none;
   width:100vw;
 }
-@media only screen and (min-width:760px){/* desktop view */
+
+#nav-floater{
+  position: sticky;
+  top:0px;
+  background-color:rgba(0,0,0,0.9)
+}
+.hide{
+  display: none;
+}
+@media only screen and (min-width:760px){/* desktop view ---------------------------------------*/
+  .hide{
+    display: initial;
+  }
   #form_name_div{
     padding: 20px;
   }
+  #my_skills_list{
+    width:100%;
+    overflow-y:initial;
+    }
   #contact_form >* > textarea{
     width: 50vw;
     height: 25vw;
@@ -208,6 +259,12 @@ section{
     max-height: 200px;
     background-repeat: no-repeat;
   }
+  #my_projects h2{
+    padding-left:initial;
+    }
+    #my_projects{
+      padding:5%;
+    }
 
   p{
     font-size: 26px;
@@ -218,7 +275,8 @@ section{
     color:var(--accent);
   }
   .nav-btn{
-    padding-top:20px;
+    padding:20px;
+    margin:auto;
   }
   main{
     height: fit-content;
@@ -235,11 +293,8 @@ section{
     width:100vw;
   }
   #main-nav{
-    position: sticky;
-    top:0px;
     display:grid;
     width:100vw;
-    background-color: rgba(0,0,0,0.3);
   }
   .skill{
     color:var(--accent);
@@ -254,9 +309,16 @@ section{
     background-size: cover;
     height:300px;
     background-position-y: -150px;
+    width:100%;
   }
   section{
-    margin-top:200px;
-
+    margin-top:100px !important;
+    margin-bottom: 100px !important;
+    line-height: 46px;
+    border-radius: 25px;
+    width:75vw;
+    margin-top:0px;
+    padding: 5%;
+    height:fit-content;
   }
 }
