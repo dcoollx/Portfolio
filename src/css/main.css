@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Courgette&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Oswald|Pacifico&display=swap');
 /* variables */
 :root{
 --black: #070b34;
@@ -16,9 +16,9 @@ body{
   color:white;
   box-sizing: border-box;
   max-width:100vw;
+  font-family: 'Oswald' , sans-serif;
 }
 main{
-  font-family: 'Roboto', sans-serif;
   max-width:100vw;
   
 }
@@ -28,10 +28,14 @@ h2{
   margin-bottom: 7% !important;
 }
 a{
+  color: var(--accent);
   text-decoration: none;
 }
 .emph{
   color:var(--emph);
+}
+textarea{
+  width:100%;
 }
 
 canvas, #target{
@@ -89,6 +93,10 @@ form#contact_form{
   border-radius: 10px;
   padding: 20px;
 }
+form div{
+  margin:0px !important;
+  padding:20px;
+}
 form#contact_form button{
   background-color: var(--base);
   border-radius: 0px;
@@ -99,24 +107,23 @@ form#contact_form button{
 }
 .skill{
   color:var(--accent);
-  margin:5px;
+  margin:5px !important;
   width:100%;
-  height:1.5em;
   font-size: 95%;
-  padding: 5px;
+  padding: 10px;
 }
 .skill:hover{
   color:var(--emph);
 }
 p{
-  padding:10px;
 }
 .mini{
   width: 80vw;
 }
 h3{
   background-color: rgba(0,0,0,0.3);
-  color:white
+  color:white;
+  padding:15px;
 }
 .desc{
   display:none;
@@ -140,11 +147,12 @@ h3{
   width:100vw;
 }
 q{
-  color:grey;
+  color:white;
+  font-family: 'Pacifico', cursive;
 }
 #my_skills_list{
 width:100%;
-overflow-y: scroll;
+display: block;
 }
 .skill:hover{
   color:var(--accent);
@@ -235,14 +243,10 @@ section p{
   }
   #my_skills_list{
     width:100%;
-    overflow-y:initial;
+    display:grid;
     }
-  #contact_form >* > textarea{
-    width: 50vw;
-    height: 25vw;
-  }
   #contact_form >* > input{
-    width:80%;
+    width:100%;
   }
   #contact_form > * > button{
     padding:25px;
@@ -300,7 +304,7 @@ section p{
     color:var(--accent);
     margin:5px;
     font-size: 100%;
-    padding: 5px;
+    padding: 15px;
   }
   .skill:hover{
     color:var(--emph);
