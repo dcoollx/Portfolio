@@ -11,6 +11,25 @@
 --accent:#BEA9DE;
 --emph:#c33764 ;
 }
+/*
+  ////A11y
+*/
+.sr-only{
+  position: absolute;
+  left: 100000px;
+}
+.skip-to-main{
+  opacity: 0;
+  color:white;
+  background-color: black;
+}
+.skip-to-main:focus{
+  opacity: 100;
+  display: block;
+}
+/*
+  ////A11y
+*/
 body{
   background:linear-gradient(black, #1d2671 , #c33764  );
   color:white;
@@ -88,10 +107,17 @@ canvas, #target{
   position: absolute;
   right:10px;
 }
+#continue_btn:hover, #continue_btn:focus{
+  font-size: 150%;
+  transition: font-size 1s;
+}
+
 form#contact_form{
   border:solid 2px var(--base);
-  border-radius: 10px;
+  border-radius: 5px;
+  grid-column: span 3;
   padding: 20px;
+  width : 100%;
 }
 form div{
   margin:0px !important;
@@ -145,6 +171,7 @@ h3{
   background-size: cover;
   height:80vw;
   width:100vw;
+  margin-bottom: 30px;
 }
 q{
   color:white;
@@ -159,18 +186,19 @@ display: block;
 }
 aside{
  max-width:85vw;
+ padding-top:25px;
+ padding-bottom: 25px;
 }
 #contact_me{
   background-color: rgba(255,255,255,0.1);
 }
-#footer{
+footer{
   color:white;
   box-sizing: border-box;
   width:100vw;
   height:fit-content;
   background-color:#303336;
   font-size: 50%;
-  color: grey;
   padding:50px;
 }
 ul{
@@ -203,7 +231,7 @@ padding-left:15%;
   border:none;
   
 }
-#blue{
+.blue{
   color:var(--base);
 }
 section{
@@ -224,17 +252,29 @@ section p{
   background-color: rgba(0,0,0,0.3);
   border:none;
   width:100vw;
+  padding-top:3%;
+  padding-bottom:3%;
 }
 
 #nav-floater{
-  position: sticky;
+  position: sticky !important;
   top:0px;
   background-color:rgba(0,0,0,0.9)
 }
 .hide{
   display: none;
 }
+#contact_form > * > button{
+  padding:15px;
+}
+input#name{
+  width:100%;
+}
 @media only screen and (min-width:760px){/* desktop view ---------------------------------------*/
+
+  footer{
+    padding:50px !important;
+  }
   .hide{
     display: initial;
   }
@@ -316,10 +356,11 @@ section p{
     width:100%;
   }
   section{
-    margin-top:100px !important;
-    margin-bottom: 100px !important;
+    margin-top:75px !important;
+    margin-bottom:75px !important;
     line-height: 46px;
-    border-radius: 25px;
+    border-radius: 10px;
+    box-shadow:  10px 10px 5px rgba(42, 40, 66, 0.192);
     width:75vw;
     margin-top:0px;
     padding: 5%;

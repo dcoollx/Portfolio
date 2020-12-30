@@ -8,15 +8,17 @@
 </head>
 <body><div id="loading" style="background-color:black;z-index:100;position: fixed;top:0px;left:0px; height:100Vh; width:100vw; margin:0px"><!-- styled in dom so loads in fast -->
   <progress style="margin:auto;"></progress><!-- this div is to hide the loading it will be full screen until "onLoad event fires" -->
-  <p onclick="()=>window.location.assign('/')">Click here if the loading isnt complete within a few seconds</p>
+  <p role="link" onclick="()=>window.location.assign('/')">Click here if the loading isnt complete within a few seconds</p>
 </div>
-  <header role="banner" class="js-menu">
+<a href="#main" class="skip-to-main">Skip to main</a>
+  <header class="js-menu">
     <div id="welcome_card" class="card">
       Welcome to <span class="emph">David Queen's</span> Portfolio
     </div>
     <div id="welcome" class="card">
-      <h1 class="welcome">Hello! I'm <span class="emph">David Queen</span></h1><h3> A Full-stack <span>Developer!</span></h3>
-      <a id="continue_btn" href="#about_me">See More &#8964; </a>
+      <h1 class="welcome">Hello! I'm <span class="emph">David Queen</span><h3 role="presentation"> A Full-Stack <span>Developer!</span></h3></h1>
+      <div role="button" tabindex="0"   aria-label="replay aniamation"> &#10226;</div>
+      <a id="continue_btn" href="#about_me">&#8964; <span class="sr-only">continue to about me</span> </a>
     </div>
     <div id="animated_nav" class="card">
       <ul>
@@ -31,21 +33,21 @@
       
   </header>
   <div id="nav-floater">
-    <button id="hamb" class='nav-btn col-quarter'>&#9776;</button>
-    <nav class="container" id="main-nav">
+    <button id="hamb" aria-label="open main menu" class='nav-btn col-quarter' aria-expanded="false">&#9776;</button>
+    <nav class="container" id="main-nav" aria-label="main">
       <div class="container col-center">
       <a class='nav-btn col-quarter' href="#about_me">about me</a>
-      <a class='nav-btn col-quarter' href="#my_skills">my skill</a>
+      <a class='nav-btn col-quarter' href="#my_skills">my skills</a>
       <a class='nav-btn col-quarter' href="#my_projects">my projects</a>
       <a class='nav-btn col-quarter' href="#my_life">my life</a>
     </div>
     </nav>
     </div>
-  <main class="container">
+  <main class="container" id="main">
     <section class=" col-center" id="about_me">
       <h2 class="col-full">Who is David Queen</h2>
       <p class="col-full">
-          I AM DAVID S QUEEN JR. formerly of NJ, now a resident of Atlanta GA. I have been many things in my journey; a toll collector, landscaper, bus driver, but they have all been mere stops along the way to becoming what I was meant to be: A PROGRAMMER. 
+          I AM DAVID S QUEEN JR. formerly of NJ, now a resident of Atlanta GA. I have been many things in my journey; a toll collector, landscaper, bus driver, but they have all been mere stops along the way to becoming what I was meant to be: A PROGRAMMER. In 2019 I Decided to jump head first into my passion by enrolling into <a href="https://www.thinkful.com/bootcamp/web-development/full-time/">Thinkful full stack development program.</a>Afterwords I began my Career at <a href="http://www.audioeye.com">AudioEye</a> as an accessibility expert, paving the way for internet inclusion.
       </p>
      
       
@@ -74,7 +76,9 @@
       <button class="skill col-quarter">Git/Github</button>
       <button class="skill col-quarter">TypeScript</button>
       <button class="skill col-quarter">GML</button>
-      <button class="skill col-quarter">Adobe suites</button>
+      <button class="skill col-quarter">Adobe Suite</button>
+      <button class="skill col-quarter">A11y</button>
+      <button class="skill col-quarter">WCAG 2.0/2.1 Compliance</button>
       <!-- <button class="skill col-quarter">RESTful API</button>
       <button class="skill col-quarter">RESTful API</button>
       <button class="skill col-quarter">RESTful API</button> -->
@@ -102,7 +106,7 @@
         </p>
       </div>
       <div id="spaced" class="project"  >
-        <h3 class="col-full"><a href="https://spaced-repetition-client-corey-david.monorthwest.now.sh/login"></a>Spaced</h3>
+        <h3 class="col-full">Spaced</h3>
         <!-- <img class="mini" src="src/img/spaced_moc_high.jpg" alt=""> -->
         <p class="desc col-full">A language learning app that uses the proven methodologies of spaced repetition learning algorithms
          <br> Built With: <i>ExpressJs, React,Postgresql </i><br>
@@ -115,7 +119,7 @@
         <h3 class="col-full">Symptom tracker</h3>
         <p class="desc col-full">A Food diary app that draws correlations between food intolerences and what you eat
             <br> Built With: <i>ExpressJs, React,Postgresql,ChartJs, React-Modal </i><br>
-          <button onclick="window.open('https://symptomtracker.rambo.now.sh', '_blank')">Live Site</button> <button onclick="window.open('https://github.com/thinkful-ei-emu/RAMbo-Tracker-client','_blank')">Client Repo</button> <button onclick="window.open('https://github.com/thinkful-ei-emu/RAMbo-Tracker-Server','_blank')">Server Repo</button>
+          <button role="link" onclick="window.open('https://symptomtracker.rambo.now.sh', '_blank')">Live Site</button> <button role="link" onclick="window.open('https://github.com/thinkful-ei-emu/RAMbo-Tracker-client','_blank')">Client Repo</button> <button onclick="window.open('https://github.com/thinkful-ei-emu/RAMbo-Tracker-Server','_blank')">Server Repo</button>
         </p>
       </div>
       <div id="other_project_container"  class="project container">
@@ -138,38 +142,40 @@
     </section>
     <!--contact me-->
     <section class="col-center" id="contact_me">
-      <h2 class="col-full" id="blue">Contact Me</h2>
+      <h2 class="col-full blue">Contact Me</h2>
       <div class="col-full container">
         <div>
       <img id="me" alt="David Queen Jr, me" src="src\img\me.jpg" class="col-quarter" style="border-radius: 100%"/>
-      <p class="col-left"> Full-stack Software engineer <br> <strong> David Queen Jr</strong> <br><a href="mailto:dsqjr@msn.com">Dsqjr@msn.com</a> <br> (609)402-1649 <br> Douglasville, GA. </p>
+      <p class="col-left"> Full-Stack Software Engineer <br> <strong> David Queen Jr</strong> <br><a href="mailto:dsqjr@msn.com">Dsqjr@msn.com <span class="sr-only">email</span></a> <br> (609)402-1649 <br> Douglasville, GA. </p>
       </div>
-      <form role="form" id="contact_form" class="container col-half" action="mailto:dsqjr@msn.com" method="post" enctype="text/plain">
+      <form id="contact_form" class="container col-half" action="mailto:dsqjr@msn.com" method="post" enctype="text/plain">
           <div class="col-full" id="form_name_div">
             <label for="name">Name</label><br>
             <input id="name" type="text" name="name"/>
           </div>
           <div class="col-full">
-            <textarea  name= "mail" id="" cols="30" rows="10"></textarea>
+            <textarea aria-label="message" placeholder="Message"  name= "mail" id="" cols="30" rows="10"></textarea>
           </div>
           <div class="col-center">
-            <button type="submit">Send</button><button type="reset">Cancel</button>
+            <button type="submit">Send</button>
           </div>
         </form>
       </div>
     <p class="col-full"> </p>
     </section>
     <!-- footer -->
-    <footer id="footer" role="footer" class="container col-full">  <div>
-    <img src="https://www.w3.org/html/logo/badge/html5-badge-h-css3-graphics-multimedia-semantics.png"  alt="HTML5 Powered with CSS3 / Styling, Graphics, 3D &amp; Effects, Multimedia, and Semantics" title="HTML5 Powered with CSS3 / Styling, Graphics, 3D &amp; Effects, Multimedia, and Semantics">
+    <footer  class="container col-full">  <div>
+      <h2>More About Me</h2>
+    <img src="https://www.w3.org/html/logo/badge/html5-badge-h-css3-graphics-multimedia-semantics.png"  alt="HTML5. logo" title="HTML5 Powered with CSS3 / Styling, Graphics, 3D &amp; Effects, Multimedia, and Semantics">
 <br>
     
         
-    <a href="https://github.com/dcoollx">github</a> | <a class="twitter-follow-button"
+    <a href="https://github.com/dcoollx">Github</a> | <a class="twitter-follow-button"
     href="https://twitter.com/dcoollx">
-  Follow @dcoollx</a>
+  Follow @dcoollx</a> | <a disabled href="">Download Resume <span class="sr-only">Download as a PDF</span></a>
  </div>
   <div class="credits col-center">
+    <h2>Credits</h2>
    This Site was made using:<br>
      <ul>
       <li> Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"     title="Flaticon">www.flaticon.com</a> </li>
@@ -180,7 +186,7 @@
       </ul>
   </div>
       <div class="col-right LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal" data-theme="dark" data-vanity="david-queen-jr-35092a73"><a class="LI-simple-link" href='https://www.linkedin.com/in/david-queen-jr-35092a73?trk=profile-badge'>linkedin</a></div>
-   <p class="col-right"> &copy; 2019 David Queen Jr </p>
+   <p class="col-right"> &copy; 2020 David Queen Jr </p>
   </footer>
   </main>
   

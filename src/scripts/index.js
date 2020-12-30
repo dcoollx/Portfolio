@@ -9,6 +9,7 @@ import symptomMockup from '../../src/img/symptracker_mockup.jpg';
 import irrMap from '../../src/img/settings.png';
 import pageLock from '../../src/img/112154-web-navigation-line-craft/112154-web-navigation-line-craft/png/padlock.png';
 import quizzApp from '../../src/img/112154-web-navigation-line-craft/112154-web-navigation-line-craft/png/new-file.png';
+import rem from './a11y';
 import $ from 'jquery';
 import mini from './secondary';
 
@@ -31,9 +32,11 @@ let mainNav =document.getElementsByTagName('nav')[0];
 let hamb = document.getElementById('hamb');
 hamb.addEventListener('click',(e)=>{
   if(mainNav.style.display !== 'grid'){
+    hamb.setAttribute('aria-expanded',true);
     mainNav.style.display = 'grid';
   }else{
     mainNav.style.display = 'none';
+    hamb.setAttribute('aria-expanded',false);
   }
 });
 mainNav.addEventListener('focusout',(e)=>{
@@ -91,7 +94,15 @@ window.showDiscription = function showDiscription(e){
 
 let divs = document.getElementsByClassName('project');
 for(let x = 0; x < divs.length;x++){
-  divs[x].addEventListener('mouseover',(e)=>{
+  divs[x].addEventListener('mouseenter',(e)=>{
+    e.preventDefault();
+    e.target.childNodes.forEach(div=>{
+      if(String(div.className).includes('desc')){
+        div.style.display = 'block';
+      }
+    });
+  });
+  divs[x].addEventListener('focus',(e)=>{
     e.preventDefault();
     e.target.childNodes.forEach(div=>{
       if(String(div.className).includes('desc')){
@@ -108,3 +119,4 @@ for(let x = 0; x < divs.length;x++){
     });
   });
 }
+rem();
